@@ -1,0 +1,18 @@
+<!--components/video-item-v1/index.wxml-->
+<view class="item">
+  <view class="container">
+    <image class="image" src="{{item.cover}}" mode="widthFix" />
+    <view class="info">
+      <view class="count">
+        {{item.playCount}}
+      </view>
+      <view class="duration">
+        {{item.mv.videos[0].duration}}
+      </view>
+    </view>
+  </view>
+
+</view>
+<view class="content">
+  {{item.name}}-{{item.artistName}}
+</view>
