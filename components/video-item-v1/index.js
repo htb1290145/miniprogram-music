@@ -6,7 +6,6 @@ Component({
       type: Object,
       value: {},
     },
-    dataItem: {},
   },
   /**
    * 页面的初始数据

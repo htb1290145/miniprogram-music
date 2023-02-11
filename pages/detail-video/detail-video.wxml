@@ -1,4 +1,15 @@
 <!--pages/detail-video/detail-video.wxml-->
 <view class="detail-video">
-  <vide class="item">detail-video</vide>
+  <video class="video" src="{{MVUrl}}" loop></video>
+  <view class="video-info">
+    <view class="video-title">
+      视频详细信息
+    </view>
+  </view>
+  <view class="video-related">
+    <view class="title">推荐视频</view>
+    <view class="video-list" wx:for="{{MVRelatedAllVideo}}" wx:key="vid">
+      <video-list-item videoItem="{{item}}"></video-list-item>
+    </view>
+  </view>
 </view>

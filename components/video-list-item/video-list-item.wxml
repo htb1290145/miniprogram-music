@@ -1,2 +1,9 @@
 <!--components/video-list-item/video-list-item.wxml-->
-<text>components/video-list-item/video-list-item.wxml</text>
+
+<view class="list-item">
+  <image class="pic" src="{{videoItem.coverUrl}}"></image>
+  <view class="info">
+    <view class="title">{{videoItem.title}}</view>
+    <view>{{videoItem.creator[0].userName}}</view>
+  </view>
+</view>

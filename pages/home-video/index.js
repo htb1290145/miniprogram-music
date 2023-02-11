@@ -67,11 +67,13 @@ Page({
   },
   // 点击视频 —— 进入视频详情页
   handleClick: async function (event) {
-    const mvid = event.currentTarget.dataset.item.id;
+    const id = event.currentTarget.dataset.item.id;
 
     // 跳转页面
     wx.navigateTo({
-      url: `/pages/detail-video/detail-video?mvid=${mvid}`,
+      url: `/pages/detail-video/detail-video?mvid=${id}`,
+      events: {},
+      success: function (res) {},
     });
   },
 });

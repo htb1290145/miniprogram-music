@@ -1,1 +1,23 @@
 /* pages/detail-video/detail-video.wxss */
+Page {
+  padding-top: 225px;
+}
+
+.video {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 225px;
+}
+
+.video-info {
+  padding: 10px 10px;
+  font-weight: 700;
+}
+
+.video-related {
+  padding: 10px 10px;
+}
+.title {
+  font-weight: 700;
+}
