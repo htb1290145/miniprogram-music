@@ -1,2 +1,7 @@
 <!--pages/home-music/index.wxml-->
 <text>pages/home-music/index.wxml</text>
+<view class="music">
+  <view>
+    歌单分类：{{playList}}
+  </view>
+</view>

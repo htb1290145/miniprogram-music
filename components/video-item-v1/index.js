@@ -2,10 +2,11 @@
 Component({
   // 父组件传递的数据
   properties: {
-    item: {
+    videoItem: {
       type: Object,
       value: {},
     },
+    dataItem: {},
   },
   /**
    * 页面的初始数据

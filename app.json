@@ -3,7 +3,8 @@
     "pages/home-music/index",
     "pages/home-video/index",
     "pages/home-profile/index",
-    "components/video-item-v1/index"
+    "components/video-item-v1/index",
+    "pages/detail-video/detail-video"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -34,5 +35,6 @@
     ]
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
 }

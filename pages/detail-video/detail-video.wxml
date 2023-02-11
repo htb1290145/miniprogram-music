@@ -1,0 +1,4 @@
+<!--pages/detail-video/detail-video.wxml-->
+<view class="detail-video">
+  <vide class="item">detail-video</vide>
+</view>
