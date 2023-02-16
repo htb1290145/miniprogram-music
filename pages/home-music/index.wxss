@@ -1,1 +1,54 @@
 /* pages/home-music/index.wxss */
+Page {
+  padding: 10px 10px;
+  background-color: #fafafa;
+  box-sizing: border-box;
+}
+
+/* 1.搜索框 */
+.van-search {
+  padding: 10px 0 !important;
+}
+.van-search__content {
+  background-color: white !important;
+}
+
+/* 2.轮播图 */
+.swiper {
+  height: 138px;
+}
+.swiper-item {
+  display: flex;
+}
+.swiper-image {
+  width: 100%;
+}
+
+/* 3.歌曲推荐 */
+.music-recommend {
+  background-color: skyblue;
+  padding-top: 20px;
+}
+
+/* 5.巅峰榜单 */
+.ranking {
+  width: 100%;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  background: skyblue;
+}
+.rank-title {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* input::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 4px;
+  width: 20px;
+  background: url(../../assets/images/tabBar/music_active.png);
+  background-color: #f0f0f0;
+  background-size: 100% 100%;
+} */

@@ -1,7 +1,35 @@
 <!--pages/home-music/index.wxml-->
-<text>pages/home-music/index.wxml</text>
 <view class="music">
-  <view>
-    歌单分类：{{playList}}
+  <!-- 1.搜索框：首页搜索框点击后跳转，不可与用户交互 -->
+  <van-search placeholder="搜索您喜爱的歌曲" shape="round" background="#fafafa" disabled bind:click-input="handleSearchMusicClick" />
+
+  <!-- 2.轮播图 -->
+  <swiper class="swiper" indicator-dots autoplay interval="2000" duration="500" circular style="height: {{swiperHeight}}px;">
+    <block wx:for="{{banners}}" wx:key="bannerId">
+      <swiper-item class="swiper-item">
+        <image class="swiper-image" src="{{item.pic}}" mode="widthFix" bindload="handleSwiperImagesLoaded" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 3.歌曲推荐 -->
+  <view class="music-recommend">
+    <area-header title="歌曲推荐" needMore="{{needMore}}"></area-header>
+    <song-recommend-item></song-recommend-item>
   </view>
+
+
+
+
+
+
+  <!-- 5.榜单 -->
+  <!-- <view class="ranking">
+    <view class="rank-title">巅峰榜</view>
+    <view class="rank-list">
+      <rank-area-item>
+      </rank-area-item>
+    </view>
+  </view> -->
+
 </view>

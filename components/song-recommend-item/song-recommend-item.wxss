@@ -1,0 +1,4 @@
+/* components/song-recommend-item/song-recommend-item.wxss */
+.item {
+  background-color: red;
+}

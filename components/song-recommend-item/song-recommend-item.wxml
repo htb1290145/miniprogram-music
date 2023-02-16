@@ -1,0 +1,12 @@
+<!--components/song-recommend-item/song-recommend-item.wxml-->
+<view class="item">
+  <!-- <image src="" alt="11">1</image> -->
+  <view class="info">
+    <view class="title">
+      {{title}}title
+    </view>
+    <view class="author">
+      author
+    </view>
+  </view>
+</view>

@@ -1,6 +1,0 @@
-<!--components/video-item-v1/index.wxml-->
-<view>{{item.name}}+</view>
-<view>{{age}}</view>
-<view>
-  {{name}}
-</view>

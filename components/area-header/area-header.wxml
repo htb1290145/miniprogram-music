@@ -1,0 +1,13 @@
+<!--components/area-header/area-header.wxml-->
+<view class="area-header">
+  <view class="title">
+    {{title}}
+  </view>
+  <view wx:if="{{needMore}}" class="more" bindtap="handleMoreClick">
+    <view class="more-text">
+      更多
+    </view>
+    <image class="more-pic" src="/assets/images/icons/arrow-right.png"></image>
+  </view>
+
+</view>

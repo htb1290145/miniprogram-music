@@ -1,0 +1,13 @@
+<!--components/rank-area-item/rank-area-item.wxml-->
+<view class="item">
+  <view class="content">
+    <view class="content-list">
+      1. music-artist
+    </view>
+    <view class="content-list">2.</view>
+    <view class="content-list">3.</view>
+  </view>
+  <view class="album">
+    album
+  </view>
+</view>

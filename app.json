@@ -4,11 +4,12 @@
     "pages/home-video/index",
     "pages/home-profile/index",
     "components/video-item-v1/index",
-    "pages/detail-video/detail-video"
+    "pages/detail-video/detail-video",
+    "pages/detail-search/detail-search"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#fafafa",
     "navigationBarTitleText": "Music",
     "navigationBarTextStyle": "black"
   },
@@ -34,7 +35,6 @@
       }
     ]
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
 }

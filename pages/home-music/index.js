@@ -1,57 +1,52 @@
 // pages/home-music/index.js
-import { getPlaylist } from "../../service/api_music";
+import { getPlaylist, getBanner } from "../../service/api_music";
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    searchMusicValue: "",
+    banners: [],
+    swiperHeight: 0,
+    needMore: 1,
     playList: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
-    try {
-      const res = await getPlaylist();
-      this.setData({ playList: res.list });
-    } catch (err) {
-      console.log(err);
-    }
+  onLoad: function (options) {
+    this.getPageData(2);
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {},
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {},
+  // 网络请求
+  getPageData(type) {
+    // 获取轮播图
+    getBanner(type).then((res) => {
+      this.setData({ banners: res.banners });
+    });
+    // 获取播放列表
+    getPlaylist().then((res) => {
+      this.setData({ playList: res.list });
+    });
+  },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {},
+  // 轮播图加载完成
+  handleSwiperImagesLoaded(e) {
+    // 获取banner组件中image高度
+    const imageItem = wx.createSelectorQuery();
+    imageItem.select(".swiper-image").boundingClientRect();
+    imageItem.exec((res) => {
+      // 设置banner组件高度=图片高度
+      this.setData({ swiperHeight: res[0].height });
+    });
+  },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {},
+  // 点击搜索框：跳转至搜索页面
+  handleSearchMusicClick(e) {
+    wx.navigateTo({
+      url: "/pages/detail-search/detail-search",
+    });
+  },
 });
