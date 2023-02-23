@@ -5,7 +5,8 @@
     "pages/home-profile/index",
     "components/video-item-v1/index",
     "pages/detail-video/detail-video",
-    "pages/detail-search/detail-search"
+    "pages/detail-search/detail-search",
+    "pages/detail-music/detail-music"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -35,6 +36,5 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "sitemapLocation": "sitemap.json"
 }

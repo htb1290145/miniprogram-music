@@ -1,8 +1,8 @@
 /* pages/home-music/index.wxss */
-Page {
-  padding: 10px 10px;
+page {
+  padding: 20rpx 20rpx;
   background-color: #fafafa;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 /* 1.搜索框 */
@@ -15,10 +15,13 @@ Page {
 
 /* 2.轮播图 */
 .swiper {
-  height: 138px;
+  border-radius: 20rpx;
+  overflow: hidden;
+  transform: translateY(0);
 }
 .swiper-item {
   display: flex;
+  /* border-radius: 50rpx; */
 }
 .swiper-image {
   width: 100%;
@@ -26,7 +29,6 @@ Page {
 
 /* 3.歌曲推荐 */
 .music-recommend {
-  background-color: skyblue;
   padding-top: 20px;
 }
 

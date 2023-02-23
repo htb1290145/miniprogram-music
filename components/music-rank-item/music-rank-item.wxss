@@ -1,0 +1,34 @@
+/* components/music-rank-item/music-rank-item.wxss */
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  background-color: #ece8e8;
+}
+
+.item .rank-area {
+  width: 70%;
+  height: 110px;
+  padding: 10px 0px 10px 10px;
+  box-sizing: border-box;
+}
+.item .rank-area .title {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.item .rank-area .rank-info {
+  display: flex;
+  font-size: 14px;
+}
+
+.item .rank-area .rank-info .info-author {
+  color: #999;
+  margin-left: 5px;
+}
+
+.item .rank-pic {
+  width: 30%;
+  height: 110px;
+}

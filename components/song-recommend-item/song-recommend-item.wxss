@@ -1,4 +1,31 @@
 /* components/song-recommend-item/song-recommend-item.wxss */
 .item {
-  background-color: red;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.item .pic {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 30rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+.item .info {
+  width: 70%;
+}
+.item .info .title {
+  margin-bottom: 20rpx;
+  font-size: 16px;
+  font-weight: 700;
+}
+.item .info .author {
+  font-size: 14px;
+}
+
+.item .more {
+  width: 30px;
+  height: 30px;
 }

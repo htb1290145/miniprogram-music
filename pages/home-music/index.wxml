@@ -14,22 +14,19 @@
 
   <!-- 3.歌曲推荐 -->
   <view class="music-recommend">
-    <area-header title="歌曲推荐" needMore="{{needMore}}"></area-header>
-    <song-recommend-item></song-recommend-item>
+    <area-header title="歌曲推荐" showRight="{{true}}"></area-header>
+    <block wx:for="{{recommendMusics}}" wx:key="id">
+      <song-recommend-item musicItem="{{item}}" bindtap="handleRecommendMusicItemClick"></song-recommend-item>
+    </block>
   </view>
 
+  <!-- 4.热门歌单 -->
+  <song-menu class="hot" area-header-title="热门歌单" song-menus="{{playLists}}"></song-menu>
 
+  <!-- 5.推荐歌单 -->
+  <song-menu class="recommend" area-header-title="推荐歌单" song-menus="{{playLists}}"></song-menu>
 
-
-
-
-  <!-- 5.榜单 -->
-  <!-- <view class="ranking">
-    <view class="rank-title">巅峰榜</view>
-    <view class="rank-list">
-      <rank-area-item>
-      </rank-area-item>
-    </view>
-  </view> -->
+  <!-- 6.榜单 -->
+  <music-rank-area fastMusicRankList="{{fastMusicRankList}}" newMusicRankList="{{newMusicRankList}}" originMusicRankList="{{originMusicRankList}}"></music-rank-area>
 
 </view>

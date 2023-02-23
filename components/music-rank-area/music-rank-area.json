@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "area-header": "/components/area-header/area-header",
+    "music-rank-item": "/components/music-rank-item/music-rank-item"
+  }
+}

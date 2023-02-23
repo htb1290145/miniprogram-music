@@ -5,6 +5,8 @@
     "van-search": "@vant/weapp/search/index",
     "area-header": "/components/area-header/area-header",
     "song-recommend-item": "/components/song-recommend-item/song-recommend-item",
-    "rank-area-item": "/components/rank-area-item/rank-area-item"
+    "rank-area-item": "/components/rank-area-item/rank-area-item",
+    "song-menu": "/components/song-menu/song-menu",
+    "music-rank-area": "/components/music-rank-area/music-rank-area"
   }
 }

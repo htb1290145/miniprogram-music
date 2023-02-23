@@ -1,0 +1,7 @@
+<!--components/music-rank-area/music-rank-area.wxml-->
+<area-header title="巅峰榜" showRight="{{false}}"></area-header>
+<music-rank-item class="item" rank-list="{{newMusicRankList}}" title="新歌榜" coverImgUrl="https://p1.music.126.net/wVmyNS6b_0Nn-y6AX8UbpQ==/109951166952686384.jpg"></music-rank-item>
+
+<music-rank-item class="item" rank-list="{{originMusicRankList}}" title="原创榜" coverImgUrl="https://p1.music.126.net/iFZ_nw2V86IFk90dc50kdQ==/109951166961388699.jpg"></music-rank-item>
+
+<music-rank-item class="item" rank-list="{{fastMusicRankList}}" title="飙升榜" coverImgUrl="https://p1.music.126.net/pcYHpMkdC69VVvWiynNklA==/109951166952713766.jpg"></music-rank-item>

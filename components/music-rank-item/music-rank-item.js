@@ -1,4 +1,4 @@
-// components/area-header/area-header.js
+// components/music-rank-item/music-rank-item.js
 Component({
   /**
    * 组件的属性列表
@@ -8,16 +8,14 @@ Component({
       type: String,
       value: "标题",
     },
-    rightText: {
-      type: String,
-      value: "更多",
+    rankList: {
+      type: Object,
     },
-    showRight: {
-      type: Boolean,
-      value: true,
+    coverImgUrl: {
+      type: String,
     },
   },
-  onLoad(options) {},
+
   /**
    * 组件的初始数据
    */
@@ -27,8 +25,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    handleMoreClick(e) {
-      // console.log(e);
+    handleRankClick(e) {
+      console.log("handleRankClick");
     },
   },
 });

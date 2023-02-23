@@ -1,12 +1,13 @@
 <!--components/song-recommend-item/song-recommend-item.wxml-->
 <view class="item">
-  <!-- <image src="" alt="11">1</image> -->
+  <image class="pic" src="{{musicItem.al.picUrl}}"></image>
   <view class="info">
     <view class="title">
-      {{title}}title
+      {{musicItem.name}}
     </view>
     <view class="author">
-      author
+      {{musicItem.ar[0].name}}-{{musicItem.originSongSimpleData.artists[0].name}}
     </view>
   </view>
+  <image class="more" src="/assets/images/icons/arrow-right.png" mode="widthFix"></image>
 </view>

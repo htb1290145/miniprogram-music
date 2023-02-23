@@ -1,0 +1,44 @@
+/* components/playlist-item/playlist-item.wxss */
+
+.menu-list {
+  width: 100vw;
+  white-space: nowrap;
+  position: relative;
+  left: -20rpx;
+}
+
+.menu-list .menu-item {
+  display: inline-block;
+  /* 保证任何机型中item顶部对齐 */
+  vertical-align: top;
+  width: 30%;
+  height: 310rpx;
+  margin-left: 20rpx;
+}
+
+.menu-item:last-of-type {
+  /* 滚动在最后跟页面之间有间距 */
+  margin-right: 20rpx;
+}
+
+.menu-item .pic {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+.menu-item .desc {
+  font-size: 14px;
+  /* 显示两行 */
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -moz-box;
+  -moz-line-clamp: 2;
+  -moz-box-orient: vertical;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+  overflow: hidden;
+}

@@ -3,11 +3,17 @@
   <view class="title">
     {{title}}
   </view>
-  <view wx:if="{{needMore}}" class="more" bindtap="handleMoreClick">
-    <view class="more-text">
-      更多
+
+  <view wx:if="{{showRight}}" class="right" bindtap="handleMoreClick">
+    <view class="slot">
+      <slot></slot>
     </view>
-    <image class="more-pic" src="/assets/images/icons/arrow-right.png"></image>
+    <view class="default">
+      <view class="right-text">
+        {{rightText}}
+      </view>
+      <image class="right-pic" src="/assets/images/icons/arrow-right.png"></image>
+    </view>
   </view>
 
 </view>
