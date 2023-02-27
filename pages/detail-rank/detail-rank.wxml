@@ -1,0 +1,5 @@
+<!--pages/detail-rank/detail-rank.wxml-->
+<view class="rank">
+  <detail-rank-header playlist="{{playlist}}"></detail-rank-header>
+  <deatil-rank-area playlist="{{playlist}}"></deatil-rank-area>
+</view>

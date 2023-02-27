@@ -35,9 +35,7 @@ page {
 /* 5.巅峰榜单 */
 .ranking {
   width: 100%;
-  padding: 10px 10px;
   box-sizing: border-box;
-  background: skyblue;
 }
 .rank-title {
   font-weight: 700;

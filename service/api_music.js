@@ -27,6 +27,11 @@ export function getListMusic(id, limit = 10, offset = 0) {
     offset,
   });
 }
+// 歌单详情
+export function getPlayListDetail(id, s = 8) {
+  return request.get("/playlist/detail", { id, s });
+}
+
 // 排行榜歌单
 // export function getRankMusicList(id, s = 8) {
 //   return request.get("/playlist/detail", { id, s });

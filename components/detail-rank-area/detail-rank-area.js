@@ -1,10 +1,10 @@
-// components/music-rank-area/music-rank-area.js
+// components/detail-rank-area/detail-rank-area.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    musicRankList: {
+    playlist: {
       type: Object,
     },
   },

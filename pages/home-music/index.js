@@ -13,6 +13,12 @@ import { musicStore } from "../../store/index";
 import throttle from "../../utils/throttle";
 // 对查询高度的操作节流
 const throttleQueryHeight = throttle(queryHeight);
+// 榜单名称映射
+const MusicRankListMap = {
+  飙升榜: "fastMusicRankList",
+  新歌榜: "newMusicRankList",
+  原创榜: "originMusicRankList",
+};
 
 Page({
   /**
@@ -25,10 +31,8 @@ Page({
     playLists: [],
     allList: [],
     recommendMusics: [],
-
-    newMusicRankList: [],
-    originMusicRankList: [],
-    fastMusicRankList: [],
+    // 排行榜数据
+    musicRankList: [],
   },
 
   /**
@@ -38,7 +42,7 @@ Page({
     // 获取页面数据
     this.getPageData(2);
 
-    // 状态共享库, 发起共享数据请求
+    // 状态共享库, 发起共享数据请求——推荐歌曲处
     musicStore.dispatch("getListMusicAction");
     // 监听数据
     musicStore.onState("recommendMusics", (value) => {
@@ -47,32 +51,28 @@ Page({
 
     // 获取排行榜歌单
     setTimeout(() => {
+      // 获取歌单详情
       for (let i = 0; i < 3; i++) {
-        let id = this.data.allList[i].id;
-        if (this.data.allList[i].name === "飙升榜") {
-          // 飙升榜
-          getListMusic(id, 3).then((res) => {
-            this.setData({
-              fastMusicRankList: res.songs,
-            });
+        const id = this.data.allList[i].id;
+        const rankName = MusicRankListMap[this.data.allList[i].name];
+        const coverImgUrl =
+          "https://p2.music.126.net/pcYHpMkdC69VVvWiynNklA==/109951166952713766.jpg";
+        // 请求歌曲排行榜
+        getListMusic(id).then((res) => {
+          if (Object.keys(res) === 0) return;
+          // 组合成对象
+          const songList = res.songs.slice(0, 3);
+          const rankObj = { rankName, coverImgUrl, songList };
+          // 将上一次的数据浅拷贝
+          const originRankList = [...this.data.musicRankList];
+          // 添加这一次请求的数据,组成最新的数据
+          originRankList.push(rankObj);
+          this.setData({
+            musicRankList: originRankList,
           });
-        } else if (this.data.allList[i].name === "新歌榜") {
-          // 新歌榜
-          getListMusic(id, 3).then((res) => {
-            this.setData({
-              newMusicRankList: res.songs,
-            });
-          });
-        } else if (this.data.allList[i].name === "原创榜") {
-          // 原创榜
-          getListMusic(id, 3).then((res) => {
-            this.setData({
-              originMusicRankList: res.songs,
-            });
-          });
-        }
+        });
       }
-    }, 500);
+    }, 1000);
   },
 
   // 网络请求
@@ -99,17 +99,29 @@ Page({
     });
   },
 
-  // 点击搜索框：跳转至搜索页面
+  // 跳转相关
+  // 点击歌曲推荐-歌单详情（热歌榜）
+  handleRecommendMusicItemClick(e) {
+    wx.navigateTo({
+      url: "/pages/detail-music/detail-music",
+    });
+  },
+  // 点击搜索框——搜索页面
   handleSearchMusicClick(e) {
     wx.navigateTo({
       url: "/pages/detail-search/detail-search",
     });
   },
-
-  // 点击歌曲推荐的歌曲：跳转至歌曲详情页
-  handleRecommendMusicItemClick(e) {
+  // 点击排行榜——榜单详情
+  handleRankClick(e) {
     wx.navigateTo({
-      url: "/pages/detail-music/detail-music",
+      url: "/pages/detail-rank/detail-rank",
+    });
+  },
+  // 点击歌曲推荐——歌单详情
+  handleRecommendClick(e) {
+    wx.navigateTo({
+      url: "/pages/detail-rank/detail-rank",
     });
   },
 });

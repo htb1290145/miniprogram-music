@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "热歌榜",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fafafa",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "deatil-rank-area": "/components/detail-rank-area/detail-rank-area",
+    "detail-rank-header": "/components/detail-rank-header/detail-rank-header"
+  }
+}

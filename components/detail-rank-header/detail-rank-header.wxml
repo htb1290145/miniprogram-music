@@ -1,0 +1,34 @@
+<!--components/detail-rank-header/detail-rank-header.wxml-->
+<view class="detail-rank-header" style="background-image: url({{backgroundUrl}})">
+  <view class="up">
+    <image class="avatarImg" src="{{playlist.creator.avatarUrl}}" mode="widthFix"></image>
+    <view class="info">
+      <view class="rank-name">
+        {{playlist.name}}
+      </view>
+      <view class="creator">
+        <image class="avatarPic" src="{{playlist.creator.avatarUrl}}" mode="widthFix"></image>
+        <view class="avatarName">
+          {{playlist.creator.nickname}}
+        </view>
+      </view>
+      <view class="introduction">
+        {{playlist.description}}
+      </view>
+    </view>
+  </view>
+  <view class="down">
+    <view class="faovr">
+      <image class="downImg" src="/assets/images/icons/favor_icon.png" mode="widthFix" />
+      <view class="faovrCount">
+        {{playlist.subscribedCount}}
+      </view>
+    </view>
+    <view class="share">
+      <image class="downImg" src="/assets/images/icons/share_icon.png" mode="widthFix" />
+      <view class="text">
+        分享
+      </view>
+    </view>
+  </view>
+</view>

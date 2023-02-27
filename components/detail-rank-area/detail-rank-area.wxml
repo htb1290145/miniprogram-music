@@ -1,0 +1,25 @@
+<!--components/detail-rank-area/detail-rank-area.wxml-->
+<view class="detail-rank-area">
+  <!-- 歌单名 -->
+  <view class="rank-name">
+    {{playlist.name}}
+  </view>
+  <!-- 歌曲排行 -->
+  <view class="rank-area">
+    <block wx:for="{{playlist.tracks}}" wx:key="id">
+      <view class="rank-area-item">
+        <view class="index">
+          {{index+1}}
+        </view>
+        <view class="music-info">
+          <view class="music-name">
+            {{item.name}}
+          </view>
+          <view class="music-alMame">
+            {{item.al.name}}
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

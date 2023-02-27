@@ -1,4 +1,4 @@
-<!--pages/home-music/index.wxml-->
+<!-- pages/home-music/index.wxml -->
 <view class="music">
   <!-- 1.搜索框：首页搜索框点击后跳转，不可与用户交互 -->
   <van-search placeholder="搜索您喜爱的歌曲" shape="round" background="#fafafa" disabled bind:click-input="handleSearchMusicClick" />
@@ -14,7 +14,7 @@
 
   <!-- 3.歌曲推荐 -->
   <view class="music-recommend">
-    <area-header title="歌曲推荐" showRight="{{true}}"></area-header>
+    <area-header title="歌曲推荐" showRight="{{true}}" bindtap="handleRecommendClick"></area-header>
     <block wx:for="{{recommendMusics}}" wx:key="id">
       <song-recommend-item musicItem="{{item}}" bindtap="handleRecommendMusicItemClick"></song-recommend-item>
     </block>
@@ -27,6 +27,10 @@
   <song-menu class="recommend" area-header-title="推荐歌单" song-menus="{{playLists}}"></song-menu>
 
   <!-- 6.榜单 -->
-  <music-rank-area fastMusicRankList="{{fastMusicRankList}}" newMusicRankList="{{newMusicRankList}}" originMusicRankList="{{originMusicRankList}}"></music-rank-area>
-
+  <view class="ranking">
+    <area-header title="巅峰榜" showRight="{{fasle}}"></area-header>
+    <block wx:for="{{musicRankList}}" wx:key="index">
+      <music-rank-area musicRankList="{{item}}" bindtap="handleRankClick"></music-rank-area>
+    </block>
+  </view>
 </view>
