@@ -5,8 +5,9 @@
     <view class="title">
       {{musicRankList.rankName}}
     </view>
+    <!-- 歌曲排行 -->
     <block wx:for="{{musicRankList.songList}}" wx:key="id">
-      <view class="rank-info">
+      <view class="rank-info" bindtap="musicItemClick">
         <view>
           {{index +1}}. {{item.name}}
         </view>
@@ -17,5 +18,5 @@
     </block>
   </view>
   <!-- 右 -->
-  <image class="rank-pic" src="{{musicRankList.coverImgUrl}}"></image>
+  <image class="rank-pic" src="{{musicRankList.coverImgUrl}}" bindtap="rankClick"></image>
 </view>

@@ -1,6 +1,7 @@
 <!--components/detail-rank-header/detail-rank-header.wxml-->
-<view class="detail-rank-header" style="background-image: url({{backgroundUrl}})">
-  <view class="up">
+<view class="detail-rank-header" style="background-image: url({{backgroundUrl}}); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);" wx:if="{{isShowRankHeader}}">
+  <!-- 歌单头部——详细版 -->
+  <view class=" up">
     <image class="avatarImg" src="{{playlist.creator.avatarUrl}}" mode="widthFix"></image>
     <view class="info">
       <view class="rank-name">

@@ -7,6 +7,10 @@ Component({
     playlist: {
       type: Object,
     },
+    isShowRankName: {
+      type: Boolean,
+      value: true,
+    },
   },
 
   /**
@@ -17,5 +21,18 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    handleRankMusicItemClick(event) {
+      console.log(("rank:", event.target.dataset.musicId));
+      wx.navigateTo({
+        url: `/pages/detail-music/detail-music?musicId=${event.target.dataset.musicId}`,
+        // success: function (res) {
+        //   // 通过 eventChannel 向被打开页面传送数据
+        //   res.eventChannel.emit("getMusicId", {
+        //     musicId: event.target.dataset.musicId,
+        //   });
+        // },
+      });
+    },
+  },
 });

@@ -2,35 +2,30 @@
 <view class="music">
   <!-- 1.搜索框：首页搜索框点击后跳转，不可与用户交互 -->
   <van-search placeholder="搜索您喜爱的歌曲" shape="round" background="#fafafa" disabled bind:click-input="handleSearchMusicClick" />
-
   <!-- 2.轮播图 -->
   <swiper class="swiper" indicator-dots autoplay interval="2000" duration="500" circular style="height: {{swiperHeight}}px;">
     <block wx:for="{{banners}}" wx:key="bannerId">
-      <swiper-item class="swiper-item">
+      <swiper-item class="swiper-item" bindtap="handleSwiperClick" data-swiper-id="{{item.song.id}}">
         <image class="swiper-image" src="{{item.pic}}" mode="widthFix" bindload="handleSwiperImagesLoaded" />
       </swiper-item>
     </block>
   </swiper>
-
-  <!-- 3.歌曲推荐 -->
+  <!-- 3.歌曲推荐——热歌榜 -->
   <view class="music-recommend">
-    <area-header title="歌曲推荐" showRight="{{true}}" bindtap="handleRecommendClick"></area-header>
+    <area-header title="歌曲推荐" showRight="{{true}}" bind:moreClick="handleMoreClick" data-rank-id="{{allList[3].id}}"></area-header>
     <block wx:for="{{recommendMusics}}" wx:key="id">
-      <song-recommend-item musicItem="{{item}}" bindtap="handleRecommendMusicItemClick"></song-recommend-item>
+      <song-recommend-item musicItem="{{item}}" bindtap="handleMusicItemClick" data-music-id="{{item.id}}"></song-recommend-item>
     </block>
   </view>
-
   <!-- 4.热门歌单 -->
   <song-menu class="hot" area-header-title="热门歌单" song-menus="{{playLists}}"></song-menu>
-
   <!-- 5.推荐歌单 -->
   <song-menu class="recommend" area-header-title="推荐歌单" song-menus="{{playLists}}"></song-menu>
-
   <!-- 6.榜单 -->
   <view class="ranking">
     <area-header title="巅峰榜" showRight="{{fasle}}"></area-header>
     <block wx:for="{{musicRankList}}" wx:key="index">
-      <music-rank-area musicRankList="{{item}}" bindtap="handleRankClick"></music-rank-area>
+      <music-rank-area musicRankList="{{item}}" bindtap="handleRankClick" data-rank-id="{{item.id}}"></music-rank-area>
     </block>
   </view>
 </view>

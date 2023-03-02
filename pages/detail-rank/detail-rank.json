@@ -1,4 +1,5 @@
 {
+  "enablePullDownRefresh": true,
   "navigationBarTitleText": "热歌榜",
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fafafa",

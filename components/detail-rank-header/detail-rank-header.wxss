@@ -4,6 +4,7 @@
   height: 200px;
   background-size: 100%;
 }
+
 .detail-rank-header .up {
   display: flex;
   width: 100%;

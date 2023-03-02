@@ -8,7 +8,7 @@ const rankStore = new HYEventStore({
   actions: {
     // 获取歌单详情——热歌榜
     getPlayListDetailAction(ctx, payload) {
-      getPlayListDetail(payload.id).then((res) => {
+      getPlayListDetail(payload).then((res) => {
         ctx.playlist = res.playlist;
       });
     },

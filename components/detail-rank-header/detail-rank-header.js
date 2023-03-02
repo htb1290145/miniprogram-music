@@ -7,6 +7,10 @@ Component({
     playlist: {
       type: Object,
     },
+    isShowRankHeader: {
+      type: Boolean,
+      value: true,
+    },
   },
   // 生命周期
   lifetimes: {
@@ -15,7 +19,7 @@ Component({
         this.setData({
           backgroundUrl: this.properties.playlist.creator.backgroundUrl,
         });
-      }, 500);
+      }, 1000);
     },
   },
   /**

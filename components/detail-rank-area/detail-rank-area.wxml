@@ -1,13 +1,13 @@
 <!--components/detail-rank-area/detail-rank-area.wxml-->
 <view class="detail-rank-area">
   <!-- 歌单名 -->
-  <view class="rank-name">
+  <view class="rank-name" wx:if="{{isShowRankName}}">
     {{playlist.name}}
   </view>
   <!-- 歌曲排行 -->
   <view class="rank-area">
     <block wx:for="{{playlist.tracks}}" wx:key="id">
-      <view class="rank-area-item">
+      <view class="rank-area-item" bindtap="handleRankMusicItemClick" data-music-id="{{item.id}}">
         <view class="index">
           {{index+1}}
         </view>

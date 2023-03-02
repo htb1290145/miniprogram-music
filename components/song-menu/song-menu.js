@@ -24,5 +24,15 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    handleMenuClick(event) {
+      const menuId = event.currentTarget.dataset.menuId;
+      wx.navigateTo({
+        url: `/pages/detail-rank/detail-rank?id=${menuId}&type=menu`,
+        success: function (res) {
+          res.eventChannel.emit("openToMenu", true);
+        },
+      });
+    },
+  },
 });

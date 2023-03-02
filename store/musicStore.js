@@ -6,7 +6,7 @@ const musicStore = new HYEventStore({
   actions: {
     // 获取歌单的歌曲
     getListMusicAction(ctx, payload) {
-      getListMusic(3778678, 10).then((res) => {
+      getListMusic(payload.id, 10).then((res) => {
         ctx.recommendMusics = res.songs;
       });
     },

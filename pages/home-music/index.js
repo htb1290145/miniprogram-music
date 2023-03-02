@@ -8,11 +8,13 @@ import {
 } from "../../service/api_music";
 // utils
 import { queryHeight } from "../../utils/query-height";
-// 状态共享
+// 状态共享与事件
 import { musicStore } from "../../store/index";
+
 import throttle from "../../utils/throttle";
 // 对查询高度的操作节流
 const throttleQueryHeight = throttle(queryHeight);
+
 // 榜单名称映射
 const MusicRankListMap = {
   飙升榜: "fastMusicRankList",
@@ -41,9 +43,13 @@ Page({
   onLoad: function (options) {
     // 获取页面数据
     this.getPageData(2);
+    // 状态共享库, 发起共享数据请求——热歌榜
+    setTimeout(() => {
+      musicStore.dispatch("getListMusicAction", {
+        id: this.data.allList[3].id,
+      });
+    }, 500);
 
-    // 状态共享库, 发起共享数据请求——推荐歌曲处
-    musicStore.dispatch("getListMusicAction");
     // 监听数据
     musicStore.onState("recommendMusics", (value) => {
       this.setData({ recommendMusics: value });
@@ -62,7 +68,7 @@ Page({
           if (Object.keys(res) === 0) return;
           // 组合成对象
           const songList = res.songs.slice(0, 3);
-          const rankObj = { rankName, coverImgUrl, songList };
+          const rankObj = { id, rankName, coverImgUrl, songList };
           // 将上一次的数据浅拷贝
           const originRankList = [...this.data.musicRankList];
           // 添加这一次请求的数据,组成最新的数据
@@ -75,7 +81,7 @@ Page({
     }, 1000);
   },
 
-  // 网络请求
+  // 网络请求：此处使用async await会浪费性能
   getPageData(type, id, s = 8) {
     // 获取轮播图
     getBanner(type).then((res) => {
@@ -100,10 +106,11 @@ Page({
   },
 
   // 跳转相关
-  // 点击歌曲推荐-歌单详情（热歌榜）
-  handleRecommendMusicItemClick(e) {
+  // 点击歌曲推荐的歌曲-点击歌曲推荐的歌曲
+  handleMusicItemClick(event) {
+    const musicId = event.target.dataset.musicId;
     wx.navigateTo({
-      url: "/pages/detail-music/detail-music",
+      url: `/pages/detail-music/detail-music?musicId=${musicId}`,
     });
   },
   // 点击搜索框——搜索页面
@@ -112,16 +119,29 @@ Page({
       url: "/pages/detail-search/detail-search",
     });
   },
-  // 点击排行榜——榜单详情
-  handleRankClick(e) {
+  // 点击排行榜(歌单)——榜单(歌单)详情，显示头部
+  handleRankClick(event) {
+    this.navigateTo(event.target.dataset.rankId, "openToRank", true);
+  },
+  // 点击更多——显示热门歌单详情，不显示头部
+  handleMoreClick(event) {
+    this.navigateTo(event.target.dataset.rankId, "openToHotRank", false);
+  },
+  navigateTo(rankId, emitName, ...args) {
     wx.navigateTo({
-      url: "/pages/detail-rank/detail-rank",
+      url: `/pages/detail-rank/detail-rank?id=${rankId}&type=rank`,
+      success: function (res) {
+        res.eventChannel.emit(emitName, ...args);
+      },
     });
   },
-  // 点击歌曲推荐——歌单详情
-  handleRecommendClick(e) {
-    wx.navigateTo({
-      url: "/pages/detail-rank/detail-rank",
-    });
+
+  // 轮播图点击
+  handleSwiperClick(event) {
+    const songId = event.currentTarget.dataset.swiperId;
+  },
+  // 巅峰榜中单个歌曲点击
+  handleMusicItemClick() {
+    console.log("handleMusicItemClick");
   },
 });

@@ -1,8 +1,8 @@
 <!--components/playlist-item/playlist-item.wxml-->
-<area-header title="{{areaHeaderTitle}}" showRight="{{true}}"></area-header>
+<area-header title="{{areaHeaderTitle}}" showRight="{{true}}" bind:moreClick="handleMoreClick"></area-header>
 <scroll-view scroll-x enable-passive class="menu-list">
   <block wx:for="{{songMenus}}" wx:key="id">
-    <view class="menu-item">
+    <view class="menu-item" bindtap="handleMenuClick" data-menu-id="{{item.id}}">
       <image class="pic" src="{{item.coverImgUrl}}" mode="widthFix"></image>
       <view class="desc">
         {{item.name}}

@@ -1,4 +1,6 @@
 // components/area-header/area-header.js
+import { eventBus } from "../../store/index";
+
 Component({
   /**
    * 组件的属性列表
@@ -27,8 +29,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    handleMoreClick(e) {
-      // console.log(e);
+    handleMoreClick() {
+      // 发射事件
+      this.triggerEvent("moreClick");
     },
   },
 });
