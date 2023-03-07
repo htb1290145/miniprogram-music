@@ -11,6 +11,9 @@ Component({
       type: Boolean,
       value: true,
     },
+    resultSongs: {
+      type: Array,
+    },
   },
 
   /**
@@ -23,15 +26,8 @@ Component({
    */
   methods: {
     handleRankMusicItemClick(event) {
-      console.log(("rank:", event.target.dataset.musicId));
       wx.navigateTo({
         url: `/pages/detail-music/detail-music?musicId=${event.target.dataset.musicId}`,
-        // success: function (res) {
-        //   // 通过 eventChannel 向被打开页面传送数据
-        //   res.eventChannel.emit("getMusicId", {
-        //     musicId: event.target.dataset.musicId,
-        //   });
-        // },
       });
     },
   },

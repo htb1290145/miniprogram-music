@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "detail-rank-area": "/components/detail-rank-area/detail-rank-area"
+  }
 }

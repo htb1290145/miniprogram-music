@@ -1,35 +1,46 @@
 <!--components/detail-rank-header/detail-rank-header.wxml-->
-<view class="detail-rank-header" style="background-image: url({{backgroundUrl}}); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);" wx:if="{{isShowRankHeader}}">
+<wxs src="../../utils/format.wxs" module="format" />
+<!-- style="background-image: url({{backgroundUrl}}); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);"  -->
+<view class="detail-rank-header" wx:if="{{isShowRankHeader}}">
+  <!-- 背景 -->
+  <image class="bg-img" src="{{backgroundUrl}}" mode="aspectFill"></image>
+  <view class="bg-cover"></view>
+
+
   <!-- 歌单头部——详细版 -->
-  <view class=" up">
-    <image class="avatarImg" src="{{playlist.creator.avatarUrl}}" mode="widthFix"></image>
-    <view class="info">
-      <view class="rank-name">
-        {{playlist.name}}
-      </view>
-      <view class="creator">
-        <image class="avatarPic" src="{{playlist.creator.avatarUrl}}" mode="widthFix"></image>
-        <view class="avatarName">
-          {{playlist.creator.nickname}}
+  <view class="content">
+    <view class=" up">
+      <image class="avatarImg" src="{{playlist.creator.avatarUrl}}" mode="widthFix"></image>
+      <view class="info">
+        <view class="rank-name">
+          {{playlist.name}}
+        </view>
+        <view class="creator">
+          <image class="avatarPic" src="{{playlist.creator.avatarUrl}}" mode="widthFix"></image>
+          <view class="avatarName">
+            {{playlist.creator.nickname}}
+          </view>
+        </view>
+        <view class="introduction">
+          {{playlist.description}}
         </view>
       </view>
-      <view class="introduction">
-        {{playlist.description}}
+    </view>
+    <view class="down">
+      <view class="faovr">
+        <image class="downImg" src="/assets/images/icons/favor_icon.png" mode="widthFix" />
+        <view class="faovrCount">
+          {{format.formatVideoPlayCount(playlist.subscribedCount)}}
+        </view>
+      </view>
+      <view class="share">
+        <image class="downImg" src="/assets/images/icons/share_icon.png" mode="widthFix" />
+        <view class="text">
+          分享
+        </view>
       </view>
     </view>
   </view>
-  <view class="down">
-    <view class="faovr">
-      <image class="downImg" src="/assets/images/icons/favor_icon.png" mode="widthFix" />
-      <view class="faovrCount">
-        {{playlist.subscribedCount}}
-      </view>
-    </view>
-    <view class="share">
-      <image class="downImg" src="/assets/images/icons/share_icon.png" mode="widthFix" />
-      <view class="text">
-        分享
-      </view>
-    </view>
-  </view>
+
+
 </view>

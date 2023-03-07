@@ -1,2 +1,37 @@
 <!--pages/detail-search/detail-search.wxml-->
-<text>pages/detail-search/detail-search.wxml</text>
+
+<!-- 1.搜索框：首页搜索框点击后跳转，不可与用户交互 -->
+<van-search class="search" placeholder="搜索您喜爱的歌曲" value="{{searchValue}}" shape="round" background="#fafafa" bind:search="handleSearchEnter" bind:change="handleSearchChange" />
+
+<!-- 热门搜索：搜索框没有且resultSongs没有才显示 -->
+<view class="hot-search" wx:if="{{!searchValue.length && !resultSongs.length}}">
+  <view class="title">
+    热门搜索
+  </view>
+  <view class="hot-list">
+    <block wx:for="{{hots}}" wx:key="first" class="hot-list">
+      <view class="item" bindtap="handleHotItemClick" data-first="{{item.first}}">
+        {{item.first}}
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 建议搜索：resultSongs没有且搜索建议有时显示-->
+<view class="suggest" wx:elif="{{!resultSongs.length && searchSuggestList.length}}">
+  <view class="title">
+    搜索"{{searchValue}}"
+  </view>
+  <block wx:for="{{searchSuggestListNodes}}" wx:key="key">
+    <view class="item" bindtap="handleSearchSuggestClick" data-index="{{index}}">
+      <image class="img" src="/assets/images/icons/search_icon.png" mode="widthFix" />
+      <!-- 关键字匹配——rich-text -->
+      <rich-text nodes="{{item}}"></rich-text>
+    </view>
+  </block>
+</view>
+
+<!-- 歌曲列表：只有resultSongs有时才显示 -->
+<view class="songs-list" wx:elif="{{resultSongs.length}}">
+  <detail-rank-area isShowRankName="{{false}}" result-songs="{{resultSongs}}"></detail-rank-area>
+</view>

@@ -14,7 +14,7 @@
   <view class="music-recommend">
     <area-header title="歌曲推荐" showRight="{{true}}" bind:moreClick="handleMoreClick" data-rank-id="{{allList[3].id}}"></area-header>
     <block wx:for="{{recommendMusics}}" wx:key="id">
-      <song-recommend-item musicItem="{{item}}" bindtap="handleMusicItemClick" data-music-id="{{item.id}}"></song-recommend-item>
+      <song-recommend-item musicItem="{{item}}"></song-recommend-item>
     </block>
   </view>
   <!-- 4.热门歌单 -->

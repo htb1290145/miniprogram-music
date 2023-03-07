@@ -4,8 +4,8 @@
   <view class="rank-name" wx:if="{{isShowRankName}}">
     {{playlist.name}}
   </view>
-  <!-- 歌曲排行 -->
-  <view class="rank-area">
+  <!--榜单/歌单的歌曲列表 -->
+  <view class="rank-area" wx:if="{{!resultSongs.length}}">
     <block wx:for="{{playlist.tracks}}" wx:key="id">
       <view class="rank-area-item" bindtap="handleRankMusicItemClick" data-music-id="{{item.id}}">
         <view class="index">
@@ -22,4 +22,24 @@
       </view>
     </block>
   </view>
+
+  <!-- 搜索的歌曲列表 -->
+  <view class="rank-area">
+    <block wx:for="{{resultSongs}}" wx:key="id">
+      <view class=" rank-area-item" bindtap="handleRankMusicItemClick" data-music-id="{{item.id}}">
+        <view class="index">
+          {{index+1}}
+        </view>
+        <view class="music-info">
+          <view class="music-name">
+            {{item.name}}
+          </view>
+          <view class="music-alMame">
+            {{item.al.name}}
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
 </view>

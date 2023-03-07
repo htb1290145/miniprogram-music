@@ -17,5 +17,13 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    // 点击歌曲item
+    handleItemClick(event) {
+      const musicId = event.currentTarget.dataset.id;
+      wx.navigateTo({
+        url: `/pages/detail-music/detail-music?musicId=${musicId}`,
+      });
+    },
+  },
 });

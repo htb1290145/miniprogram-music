@@ -11,13 +11,6 @@ Page({
   onLoad(options) {
     // options中 是通过url中query参数传递的
     console.log(options.musicId);
-
-    // 页面间的通信接口
-    // on监听事件，获取上一页面 通过 eventChannel 传送到当前页面的数据
-    // const eventChannel = this.getOpenerEventChannel();
-    // eventChannel.on("getMusicId", function (musicId) {
-    //   console.log(musicId);
-    // });
   },
 
   /**

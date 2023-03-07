@@ -1,5 +1,5 @@
 <!--components/song-recommend-item/song-recommend-item.wxml-->
-<view class="item">
+<view class="item" bindtap="handleItemClick" data-id="{{musicItem.id}}">
   <image class="pic" src="{{musicItem.al.picUrl}}"></image>
   <view class="info">
     <view class="title">

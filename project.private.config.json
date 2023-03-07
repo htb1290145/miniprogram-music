@@ -35,6 +35,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/detail-search/detail-search",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

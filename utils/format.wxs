@@ -1,6 +1,10 @@
 var formatVideoPlayCount = function formatVideoPlayCount(count) {
-  var counter = parseInt(count / 10000);
-  return counter.toFixed(1) + "万";
+  if (count > 1000) {
+    var counter = parseInt(count / 10000);
+    return counter.toFixed(1) + "万";
+  } else {
+    return count;
+  }
 };
 
 // 美化时间（个位数左边加0）5 —— 005 —— 05

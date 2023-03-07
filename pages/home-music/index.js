@@ -106,15 +106,9 @@ Page({
   },
 
   // 跳转相关
-  // 点击歌曲推荐的歌曲-点击歌曲推荐的歌曲
-  handleMusicItemClick(event) {
-    const musicId = event.target.dataset.musicId;
-    wx.navigateTo({
-      url: `/pages/detail-music/detail-music?musicId=${musicId}`,
-    });
-  },
+
   // 点击搜索框——搜索页面
-  handleSearchMusicClick(e) {
+  handleSearchMusicClick(event) {
     wx.navigateTo({
       url: "/pages/detail-search/detail-search",
     });
@@ -139,9 +133,5 @@ Page({
   // 轮播图点击
   handleSwiperClick(event) {
     const songId = event.currentTarget.dataset.swiperId;
-  },
-  // 巅峰榜中单个歌曲点击
-  handleMusicItemClick() {
-    console.log("handleMusicItemClick");
   },
 });
