@@ -1,50 +1,40 @@
 // pages/detail-music/detail-music.js
+// api
+import { getMusicDetail } from "../../service/api_music_player";
+
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    musicDetail: {},
+    isSongClicked: true,
+    isWordClicked: false,
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     // options中 是通过url中query参数传递的
-    console.log(options.musicId);
+    const musicId = options.musicId;
+    this.getPageData(musicId);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {},
+  // 获取页面数据
+  getPageData(ids) {
+    getMusicDetail(ids).then((res) => {
+      this.setData({ musicDetail: res.songs });
+    });
+  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {},
+  // 歌词歌曲点击
+  handleSongClick() {
+    this.setData({ isSongClicked: true, isWordClicked: false });
+    // 切换歌曲
+  },
+  handleWordClick() {
+    this.setData({ isWordClicked: true, isSongClicked: false });
+  },
+  // 切换歌词
 });

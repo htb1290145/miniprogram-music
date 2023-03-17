@@ -36,10 +36,14 @@ Page({
   handleSearchChange: function (event) {
     const searchValue = event.detail;
     this.setData({ searchValue });
-    if (!searchValue.length) {
-      this.setData({ searchSuggestList: [] });
-      this.setData({ searchSuggestListNodes: [] });
-      this.setData({ resultSongs: [] });
+    if (!this.data.searchValue.length) {
+      this.setData({
+        searchSuggestList: [],
+        searchSuggestListNodes: [],
+        resultSongs: [],
+      });
+      // 当搜索框没有值时，取消发送网络请求
+      debounceSearchSuggest.cancel();
       return;
     }
     // 发送网络请求，关键字匹配
@@ -49,6 +53,7 @@ Page({
       this.setData({ searchSuggestList });
 
       // 2. 转成nodes节点
+      if (!searchSuggestList.length) return;
       const suggestKeywords = searchSuggestList.map((item) => item.keyword);
       const suggestNodes = [];
       for (const keyword of suggestKeywords) {

@@ -30,5 +30,10 @@ Component({
         url: `/pages/detail-music/detail-music?musicId=${event.target.dataset.musicId}`,
       });
     },
+    handleMusicItemClick(event) {
+      wx.navigateTo({
+        url: `/pages/detail-music/detail-music?musicId=${event.target.dataset.musicId}`,
+      });
+    },
   },
 });

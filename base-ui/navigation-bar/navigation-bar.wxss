@@ -1,0 +1,20 @@
+/* components/navigation-bar/navigation-bar.wxss */
+/* 顶层 */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 52px;
+  padding: 0 150px 0 10px;
+  height: 30px;
+}
+/* 返回按钮 */
+.nav-bar .return {
+  width: 25px;
+}
+
+/* 内容区域 */
+/* 歌词歌曲文字动态样式 */
+.clicked {
+  color: white;
+}

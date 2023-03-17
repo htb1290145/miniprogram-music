@@ -1,0 +1,16 @@
+<!--components/navigation-bar/navigation-bar.wxml-->
+<view class="nav-bar">
+  <!-- <image class="return" src="/assets/images/icons/arrow-left.png" mode="widthFix" />
+
+  <view class="text">
+    <span class=" {{isSongClicked ?'clicked':'' }}" bindtap="handleSongClick">
+      歌曲
+    </span>
+    <span> | </span>
+    <span class=" {{isWordClicked ? 'clicked' :'' }}" bindtap="handleWordClick">
+      歌词
+    </span> -->
+  <!-- 插槽 -->
+  <slot></slot>
+</view>
+</view>

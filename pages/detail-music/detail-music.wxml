@@ -1,3 +1,60 @@
 <!--pages/detail-music/detail-music.wxml-->
-<text>pages/detail-music/detail-music.wxml</text>
-<!-- music-player -->
+<view class="music-player">
+
+  <!-- 模糊背景层 -->
+  <image src="{{musicDetail[0].al.picUrl}}" mode="scaleToFill" class="bg-img" />
+  <view class="bg-cover">
+  </view>
+
+  <!-- 自定义导航 -->
+  <nav-bar></nav-bar>
+
+
+  <!-- 内容：当使用custom导航时，布局从页面顶部开始 -->
+  <view class="content">
+    <!-- <view class="top">
+      <image class="return" src="/assets/images/icons/arrow-left.png" mode="widthFix" />
+      <view class="text">
+        <span class=" {{isSongClicked ?'clicked':'' }}" bindtap="handleSongClick">
+          歌曲
+        </span>
+        <span> | </span>
+        <span class=" {{isWordClicked ? 'clicked' :'' }}" bindtap="handleWordClick">
+          歌词
+        </span>
+      </view>
+    </view> -->
+
+    <!-- 显示歌词或歌曲 -->
+    <view class="displaySong" wx:if="{{isSongClicked}}">
+      <!-- 作者图 -->
+      <image class="songPic" src="{{musicDetail[0].al.picUrl}}" mode="widthFix" />
+
+      <!-- 歌曲相关信息 -->
+      <view class="info">
+        <view class="name">
+          {{musicDetail[0].name}}
+        </view>
+        <view class="author">
+          {{musicDetail[0].ar[0].name}}
+        </view>
+        <view class="album">
+          专辑：{{musicDetail[0].al.name}}
+        </view>
+      </view>
+
+      <!-- 滚动歌词 -->
+      <view class="songWord">
+        我是歌词
+      </view>
+      <!-- 进度条 -->
+
+      <!-- 控制器 -->
+    </view>
+
+    <!-- 显示歌词 -->
+    <view class="displayWord" wx:else>
+      歌词
+    </view>
+  </view>
+</view>

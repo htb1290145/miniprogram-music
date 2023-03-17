@@ -1,1 +1,53 @@
 /* pages/detail-music/detail-music.wxss */
+/* 自定义导航custom */
+.custom {
+  background-color: skyblue;
+}
+
+/* 背景图 */
+.bg-img,
+.bg-cover {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bg-cover {
+  /* 背景图模糊关键 */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 毛玻璃 */
+  backdrop-filter: blur(20px);
+}
+
+/* 内容区域 */
+/* 歌曲模块 */
+.content .displaySong {
+  padding: 50px 20px 0 20px;
+  color: white;
+}
+.displaySong .songPic {
+  width: 100%;
+}
+
+.displaySong .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  height: 100px;
+}
+
+.info .name {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+/* 滚动歌词 */
+.displaySong .songWord {
+  margin-top: 20px;
+  font-size: 22px;
+  text-align: center;
+}

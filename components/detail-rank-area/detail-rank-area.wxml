@@ -26,7 +26,7 @@
   <!-- 搜索的歌曲列表 -->
   <view class="rank-area">
     <block wx:for="{{resultSongs}}" wx:key="id">
-      <view class=" rank-area-item" bindtap="handleRankMusicItemClick" data-music-id="{{item.id}}">
+      <view class=" rank-area-item" bindtap="handleMusicItemClick" data-music-id="{{item.id}}">
         <view class="index">
           {{index+1}}
         </view>
