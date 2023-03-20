@@ -1,7 +1,9 @@
 <!-- pages/home-music/index.wxml -->
 <view class="music">
+
   <!-- 1.搜索框：首页搜索框点击后跳转，不可与用户交互 -->
   <van-search placeholder="搜索您喜爱的歌曲" shape="round" background="#fafafa" disabled bind:click-input="handleSearchMusicClick" />
+  
   <!-- 2.轮播图 -->
   <swiper class="swiper" indicator-dots autoplay interval="2000" duration="500" circular style="height: {{swiperHeight}}px;">
     <block wx:for="{{banners}}" wx:key="bannerId">
@@ -10,6 +12,7 @@
       </swiper-item>
     </block>
   </swiper>
+  
   <!-- 3.歌曲推荐——热歌榜 -->
   <view class="music-recommend">
     <area-header title="歌曲推荐" showRight="{{true}}" bind:moreClick="handleMoreClick" data-rank-id="{{allList[3].id}}"></area-header>

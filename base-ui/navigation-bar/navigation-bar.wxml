@@ -1,16 +1,43 @@
 <!--components/navigation-bar/navigation-bar.wxml-->
-<view class="nav-bar">
-  <!-- <image class="return" src="/assets/images/icons/arrow-left.png" mode="widthFix" />
+<view class="nav">
+  <!-- 状态栏 -->
+  <view class="status" style="height:{{statusBarHeight}}px">
+  </view>
 
-  <view class="text">
-    <span class=" {{isSongClicked ?'clicked':'' }}" bindtap="handleSongClick">
-      歌曲
-    </span>
-    <span> | </span>
-    <span class=" {{isWordClicked ? 'clicked' :'' }}" bindtap="handleWordClick">
-      歌词
-    </span> -->
-  <!-- 插槽 -->
-  <slot></slot>
-</view>
+  <!-- 导航栏 -->
+  <view class="nav-bar" style="height: {{navigationBarHeight}}px">
+
+    <!-- 左 -->
+    <view class="left">
+      <!-- 如果外部插槽有东西，则只显示这个 -->
+      <view class="left-slot">
+        <slot name="left"></slot>
+      </view>
+      <!-- 默认只有一个返回按钮 -->
+      <view class="left-arrow" bindtap="handleReturnClick">
+        <image class="return" src="/assets/images/icons/arrow-left.png" mode="widthFix" />
+      </view>
+    </view>
+
+    <!-- 中 -->
+    <view class="center">
+      <view class="center-slot">
+        <slot name="center"></slot>
+      </view>
+      <view class="center-title">
+        {{title}}
+      </view>
+    </view>
+
+    <!-- 右 -->
+    <view class="right">
+      <view class="right-slot">
+        <slot name="right"></slot>
+      </view>
+      <view class="right-btn">
+        right
+      </view>
+    </view>
+  </view>
+
 </view>

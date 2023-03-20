@@ -1,34 +1,37 @@
 <!--pages/detail-music/detail-music.wxml-->
+<wxs src="../../utils/format.wxs" module="format" />
+
 <view class="music-player">
 
-  <!-- 模糊背景层 -->
+  <!-- 2.1-模糊背景层 -->
   <image src="{{musicDetail[0].al.picUrl}}" mode="scaleToFill" class="bg-img" />
   <view class="bg-cover">
   </view>
 
-  <!-- 自定义导航 -->
-  <nav-bar></nav-bar>
+  <!-- 2.2-自定义导航 -->
+  <nav-bar class="nav-bar">
 
+    <!-- 中间插槽 -->
+    <view slot="center" class="center">
+      <span class=" {{currentPage === 0 ?'clicked':'' }}">
+        歌曲
+      </span>
+      <span> | </span>
+      <span class=" {{currentPage === 1 ? 'clicked' :'' }}">
+        歌词
+      </span>
+    </view>
 
-  <!-- 内容：当使用custom导航时，布局从页面顶部开始 -->
-  <view class="content">
-    <!-- <view class="top">
-      <image class="return" src="/assets/images/icons/arrow-left.png" mode="widthFix" />
-      <view class="text">
-        <span class=" {{isSongClicked ?'clicked':'' }}" bindtap="handleSongClick">
-          歌曲
-        </span>
-        <span> | </span>
-        <span class=" {{isWordClicked ? 'clicked' :'' }}" bindtap="handleWordClick">
-          歌词
-        </span>
-      </view>
-    </view> -->
+  </nav-bar>
 
-    <!-- 显示歌词或歌曲 -->
-    <view class="displaySong" wx:if="{{isSongClicked}}">
+  <!-- 2.3-轮播图切换显示歌词歌曲 -->
+  <swiper class="content-swiper" style="height: {{swiperHeight}}px;" bindchange="handleSwiperChange">
+
+    <!-- 歌曲 -->
+    <swiper-item class="swiper-song">
+
       <!-- 作者图 -->
-      <image class="songPic" src="{{musicDetail[0].al.picUrl}}" mode="widthFix" />
+      <image class="songPic" src="{{musicDetail[0].al.picUrl}}" />
 
       <!-- 歌曲相关信息 -->
       <view class="info">
@@ -45,16 +48,46 @@
 
       <!-- 滚动歌词 -->
       <view class="songWord">
-        我是歌词
+        {{lyricShowing}}
       </view>
+
       <!-- 进度条 -->
+      <view class="progress">
+        <slider class="slider" block-size="12" value="{{sliderValue}}" bindchange="handleSliderChange"></slider>
+        <view class="time">
+          <view class="current">
+            {{format.formatDuration(currentTime)}}
+          </view>
+          <view class="duration">
+            {{format.formatDuration(duration)}}
+          </view>
+        </view>
+      </view>
 
       <!-- 控制器 -->
-    </view>
+      <view class="control">
+        <image src="/assets/images/player/play_order.png" mode="widthFix" class="btn btn-mode" />
+        <image src="/assets/images/player/play_prev.png" mode="widthFix" class="btn btn-pre" />
 
-    <!-- 显示歌词 -->
-    <view class="displayWord" wx:else>
-      歌词
-    </view>
-  </view>
+        <!-- 暂停 -->
+        <image src="/assets/images/player/play_pause.png" mode="widthFix" class="btn btn-pause" bindtap="handlePauseClick" wx:if="{{isPlay}}" />
+        <image src="/assets/images/player/play_resume.png" mode="widthFix" class="btn btn-pause" bindtap="handlePauseClick" wx:else />
+
+        <image src="/assets/images/player/play_next.png" mode="widthFix" class="btn btn-next" />
+        <image src="/assets/images/player/play_music.png" mode="widthFix" class="btn btn-music" />
+      </view>
+    </swiper-item>
+
+    <!-- 歌词 -->
+    <swiper-item class="swiper-lyric">
+      <scroll-view scroll-y class="scroll-lyric" enable-passive style="height: {{swiperHeight}}px;">
+        <block wx:for="{{lyricInfo}}" wx:key="index">
+          <view class="lyric {{lyricShowing === item.lyricText ? 'acitve':''}}" style="--lyricMargin--:{{lyricMargin}}px">
+            {{item.lyricText}}
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
 </view>

@@ -29,8 +29,24 @@ function formatVideoDuration(duration) {
   return videoDuration;
 }
 
+function formatDuration(duration) {
+  // ms -> s
+  duration = parseInt(duration / 1000);
+  var s = duration % 60;
+  var m = Math.floor(duration / 60);
+  var t = Math.floor(duration / 3600);
+
+  if (t === 0) {
+    var duration = padLeftZero(m) + ":" + padLeftZero(s);
+  } else {
+    var duration = t + ":" + m + ":" + s + ":";
+  }
+  return duration;
+}
+
 // commonjs
 module.exports = {
   formatVideoPlayCount: formatVideoPlayCount,
   formatVideoDuration: formatVideoDuration,
+  formatDuration: formatDuration,
 };

@@ -1,10 +1,7 @@
 /* pages/detail-music/detail-music.wxss */
-/* 自定义导航custom */
-.custom {
-  background-color: skyblue;
+page {
 }
-
-/* 背景图 */
+/* 2.1-背景图 */
 .bg-img,
 .bg-cover {
   position: fixed;
@@ -22,32 +19,139 @@
   backdrop-filter: blur(20px);
 }
 
-/* 内容区域 */
-/* 歌曲模块 */
-.content .displaySong {
-  padding: 50px 20px 0 20px;
+/* 2.2-自定义导航区域 */
+.nav-bar .center {
+  font-size: 34rpx;
+  text-align: center;
+}
+.clicked {
   color: white;
 }
-.displaySong .songPic {
+
+/* 2.3-内容区域 */
+.content-swiper {
+  padding: 20px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: white;
+}
+/* 2.3.1-歌曲模块 */
+.swiper-song {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 30rpx 60rpx;
+}
+.swiper-song .songPic {
   width: 100%;
+  border-radius: 12rpx;
+  flex: 5;
 }
 
-.displaySong .info {
+.swiper-song .info {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-top: 20px;
-  height: 100px;
+  margin: 20rpx 0;
 }
 
 .info .name {
-  font-size: 25px;
+  font-size: 48rpx;
   font-weight: 700;
+}
+.info .author,
+.info .album {
+  font-size: 26rpx;
+  color: #ccc;
+  margin: 16rpx 0;
 }
 
 /* 滚动歌词 */
-.displaySong .songWord {
-  margin-top: 20px;
-  font-size: 22px;
+.swiper-song .songWord {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
   text-align: center;
+  font-size: 28rpx;
+  color: #0f0;
+}
+
+/* 进度条slider */
+.swiper-song .progress {
+  margin: 10rpx 0;
+}
+.progress .slider {
+  margin: 0 0 18rpx 20rpx;
+}
+.progress .time {
+  display: flex;
+  justify-content: space-between;
+  color: #ccc;
+  font-size: 22rpx;
+}
+
+/* 控制器 */
+.control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20rpx 0 30rpx;
+}
+.control .btn {
+  display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+  padding: 0;
+}
+.control .btn-mode {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.control .btn-pause {
+  width: 130rpx;
+  height: 130rpx;
+}
+
+/* 2.3.2-歌词模块 */
+.swiper-lyric .scroll-lyric {
+  text-align: center;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+/* 去除滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.scroll-lyric .lyric {
+  height: 35px;
+  line-height: 35px;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  color: #cecece;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 正在显示的歌词 */
+.scroll-lyric .acitve {
+  color: #26ce8a;
+  font-size: 36rpx;
+}
+/* 顶部和底部歌词到上下顶部的距离 */
+.scroll-lyric .lyric:first-of-type {
+  /* margin-top: 200rpx; */
+  margin-top: var(--lyricMargin--);
+}
+.scroll-lyric .lyric:nth-last-child(2) {
+  color: red;
+  margin-bottom: var(--lyricMargin--);
 }
